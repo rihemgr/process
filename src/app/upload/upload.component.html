@@ -1,0 +1,51 @@
+
+<!--Upload Interface-->
+<div  class="container-document" >
+    <div class="card">
+        <div class="card-header">
+            <nb-icon icon="list-outline"></nb-icon>
+            Upload Resume
+        </div>
+        <div class="card-body">
+
+            <!--myDiv-->
+            <div class="divUpload">
+                <!--upload File-->
+                <div class="cont heightStyleUpload" appDnd  title="">
+                    <input type="file"   title=""  />
+                    <i class="fa fa-upload iconUpload" aria-hidden="true"></i>
+                    <h2></h2>
+                    <span class="uploadText">Drag and drop your resume here  <span
+                        class="textUploadColor">
+                            <u>Browse for file </u></span>
+                    </span>
+                </div>
+                <div  class="progress my-3">
+                    <div
+                        class="progress-bar progress-bar-info progress-bar-striped"
+                        role="progressbar"
+                        attr.aria-valuenow="{{ progress }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        [ngStyle]="{ width: progress + '%' }"
+                    >
+                        {{ progress }}%
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!--Radio button-->
+            <table class="fullwidth">
+                <tr>
+                    <div class="actions-container right">
+                        <button nbButton class="cancel-btn" shape="round" size="medium" >cancel</button>
+                        <button nbButton class="submit-btn" hero shape="round" size="medium" status="primary" nbSpinnerStatus="control"  (click)="upload()" >submit</button>
+                    </div>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

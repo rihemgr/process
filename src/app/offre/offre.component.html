@@ -1,0 +1,299 @@
+<!--<button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>-->
+  
+  <div class="container  " >
+    <div class="row ">
+      <img  class="shape-right  " src="../assets/imgs/shape-top-right.svg" alt="Shape right">
+    </div>
+  
+    <div  class="column left  ">
+        <div  class="column-content-container">
+         <div class="row  ">
+         <div class="col-md-6 ">
+    
+         
+       <!--  <div style="margin-top:90px" class="logo-container">
+          <h4 style="margin-left:-130px;" >To guide you toward a successful career</h4>
+             </div>-->
+            
+             <div class="motto-container ">
+              <img style="margin-left:-100px; width:350px; margin-top:10px" [src]="'assets/imgs/logoSirius-light.png'" alt="Sirius HR logo">
+               </div>
+           
+            </div>
+        </div>
+         </div>
+         </div> 
+          
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <mat-stepper  linear #stepper>
+    <mat-step [stepControl]="firstFormGroup"  [editable]="isEditable">
+      <form   [formGroup]="firstFormGroup">
+          
+        <ng-template matStepLabel>Selectionner les offres</ng-template>
+        <mat-form-field  appearance="fill" >
+          
+       <!--  <mat-label >Name</mat-label>-->
+          <input  matInput  formControlName="firstCtrl" placeholder="Last name, First name" required>
+        </mat-form-field>
+        
+        <div >
+          <button  style="margin-top:420px; height:30px; margin-left:1000px" mat-button matStepperNext>Next</button>
+        </div>
+        
+        
+        <div  style="margin-top:-430px; color: rgb(8, 8, 151); " class="example-container ">
+            <h2>Offres</h2>
+         
+            <div style="border-radius:6px; "
+              cdkDropList
+              #todoList="cdkDropList"
+              [cdkDropListData]="todo"
+              [cdkDropListConnectedTo]="[doneList]"
+              class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              
+              
+              <div class="example-box " *ngFor="let item of todo" cdkDrag>{{item}}</div>
+            </div>
+            
+        
+          </div>
+          
+         
+          <div  style="margin-top:-430px;   color: rgb(8, 8, 151)"  class="example-container ">
+            
+            <h2>Selectionner les offres qui vous conviennent</h2>
+         
+          
+            <div   style="border-radius:6px;"
+              cdkDropList
+              #doneList="cdkDropList"
+              [cdkDropListData]="done"
+              [cdkDropListConnectedTo]="[todoList]"
+              class="example-list  "
+              (cdkDropListDropped)="drop($event)">
+            
+              
+
+              <div class="example-box  " *ngFor="let item of done" cdkDrag>{{item}}</div>
+          
+            </div>
+
+            
+            
+             
+            
+
+
+
+
+            
+            </div>
+        
+
+
+            
+
+
+
+
+        
+
+
+            <div style="margin-top:-190px ; margin-left:700px" class="container-fluid  py-3">
+    
+  
+                <form #form="ngForm">
+                  <div class="row mt-3">
+                    <div class="col-sm-12 mb-2">
+                      <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                      <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                        <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                      </div>
+                    </div>
+                  </div>
+                 <!-- <div class="row">
+                    <div class="col-sm-12 mb-2">
+                      <button type="button" class="btn btn-sm btn-primary" (click)="send(form)">Send</button>
+                    </div>
+                  </div>-->
+                </form>
+              </div>
+
+
+
+
+
+      </form>
+      
+
+    <!--  <p>
+        <button (click)="changePosition()">Change element position</button>
+      </p> -->
+      
+      
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Attacher votre CV</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+
+        
+        <div>
+          <button style="margin-top:420px; margin-left:1100px"  mat-button matStepperPrevious>Back</button>
+          <button   mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+
+
+
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Introduire vos informations personnelles</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                   required>
+          </mat-form-field>
+  
+
+
+          <div  class="container-xl px-4 mt-4">
+
+            <div class="row">
+
+
+               <div style="margin-left:200px" class="col-xl-8">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div  class="card-header">Candidate Details
+                        </div>
+                        <div class="card-body">
+
+                              <form>
+                               
+                                <!-- Form Row-->
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (first name)-->
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputFirstName">First name</label>
+                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                                    </div>
+                                    <!-- Form Group (last name)-->
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLastName">Last name</label>
+                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
+                                    </div>
+                                    
+                                    <div style="margin-top:10px">
+                                    <input   type="radio" id="contactChoice1"
+                                    name="contact" value="male">
+                                   <label style="margin-left:7px" for="contactChoice1">Male</label>
+                               
+                                   <input style="margin-left:5px" type="radio" id="contactChoice2"
+                                    name="contact" value="female">
+                                   <label  style="margin-left:6px"for="contactChoice2">Female</label>
+                                   </div> 
+
+
+
+
+                                      
+                                </div>
+
+
+
+
+                                
+
+                                
+                                
+                                <!-- Form Group (email address)-->
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+                                </div>
+                                
+                                
+                                    <!-- Form Group (phone number)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputPhone">Phone number</label>
+                                        <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                                    </div>
+                                   
+                                <!-- Save changes button-->
+                                <button style="background-color:rgb(28, 28, 170)" class="btn btn-primary" type="button">Save</button>
+                            </form>
+  
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+
+
+
+      
+
+
+          
+          <div>
+            <button style="margin-top:420px; margin-left:1100px"  mat-button matStepperPrevious>Back</button>
+            <button   mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Validation de candidature</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button style="margin-top:420px; margin-left:1100px"  mat-button matStepperPrevious>Back</button>
+        <button  mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+
+
+
+    
+  </div>
+
+
+
+
+
+     
+ 
+  
+  
+  
